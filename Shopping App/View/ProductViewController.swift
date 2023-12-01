@@ -143,7 +143,7 @@ extension ProductViewController : UISearchBarDelegate {
                       isSearching = true
                       // Add Data
                       searchArray = productNameArray.filter({$0.lowercased().contains(searchText.lowercased())})
-                      searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                        searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
                   }
                   
         self.collectionView.reloadData()

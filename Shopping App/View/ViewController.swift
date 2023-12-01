@@ -25,20 +25,21 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         loadProducts()
+        
     }
     
     func loadProducts() {
         
         let db = Firestore.firestore()
         db.collection("selectedProducts").addSnapshotListener{ snapshots, error in
-            
+    
             if error != nil {
                 
                 print(error?.localizedDescription)
                 
             } else {
                 for document in snapshots!.documents {
-                    
+                
                     if let productName = document.get("Product Name") as?  String {
                         
                         self.productNameArray.append(productName)
@@ -77,18 +78,29 @@ class ViewController: UIViewController {
         cell.deleteButtonClicked = {
             let db = Firestore.firestore()
             
-            let deletedProductName = self.productNameArray[indexPath.row]
-                
-            db.collection("selectedProducts").document("\(deletedProductName)").delete() { error in
-                
+            let query = db.collection("selectedProducts").whereField("Product Name", isEqualTo: self.productNameArray[indexPath.row])
+            
+            self.productNameArray.removeAll()
+            self.productPictureArray.removeAll()
+            
+            query.getDocuments { (querySnapshot, error) in
+            
                 if let error = error {
-                    print(error.localizedDescription)
+                    print("Veri çekme hatası: \(error.localizedDescription)")
                 } else {
-                    
+                    for document in querySnapshot!.documents {
+                        document.reference.delete { (error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                
+                            }
+                        }
+                    }
                 }
             }
-            self.tableView.reloadData()
-            
+           self.tableView.reloadData()
+          
         }
         
         return cell 
