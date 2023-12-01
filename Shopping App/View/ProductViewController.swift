@@ -102,7 +102,8 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
         
         if isSearching {
             cell.productName.text = searchArray[indexPath.row]
-            cell.imageView.image = UIImage(named:searchPictureArray[indexPath.row])
+            cell.imageView.image = UIImage(named:searchPictureArray[indexPath.row] )
+            
                 } else {
                     cell.productName.text = productNameArray[indexPath.row]
                     cell.imageView.image = UIImage(named: productPictureArray[indexPath.row])
