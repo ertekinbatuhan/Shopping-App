@@ -18,12 +18,19 @@ class ProductViewController: UIViewController {
     var productArray = [Product]()
     var productNameArray = [String]()
     var productPictureArray = [String]()
+    var searchArray = [String]()
+    var searchPictureArray = [String]()
+    var isSearching = false
+      
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.dataSource = self
         collectionView.delegate = self
+        productSearch.delegate = self
+        
         loadData()
 
     }
@@ -63,7 +70,16 @@ class ProductViewController: UIViewController {
 
 extension ProductViewController : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productNameArray.count
+      //  return productNameArray.count
+        
+        
+        if isSearching {
+                    
+                    return searchArray.count
+                    
+                } else  {
+                    return productNameArray.count
+                }
         
     }
     
@@ -83,7 +99,16 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
         
         cell.imageView.image = UIImage(named:productPictureArray[indexPath.row])
         cell.productName.text = productNameArray[indexPath.row]
-      
+        
+        if isSearching {
+            cell.productName.text = searchArray[indexPath.row]
+            cell.imageView.image = UIImage(named:searchPictureArray[indexPath.row])
+                } else {
+                    cell.productName.text = productNameArray[indexPath.row]
+                    cell.imageView.image = UIImage(named: productPictureArray[indexPath.row])
+                    
+                }
+                
         cell.buttonClicked = {
 
             let db = Firestore.firestore()
@@ -102,6 +127,28 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
         return CGSize(width: 180, height: 300)
         
     }
+    
+    
+}
+
+extension ProductViewController : UISearchBarDelegate {
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           
+           if searchText == "" {
+                     isSearching = false
+                  } else {
+                      isSearching = true
+                      // Add Data
+                      searchArray = productNameArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                      searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                  }
+                  
+        self.collectionView.reloadData()
+           
+       }
+       
     
     
 }
