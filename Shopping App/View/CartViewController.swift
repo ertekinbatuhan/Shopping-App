@@ -10,19 +10,25 @@ import Firebase
 import FirebaseFirestore
 
 
-class ViewController: UIViewController {
+class CartViewController: UIViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     var productArray = [Product]()
     var productNameArray = [String]()
     var productPictureArray = [String]()
     var productIdArray = [String]()
+    var searchArray = [String]()
+    var searchPictureArray = [String]()
+    var isSearching = false
+      
 
     override func viewDidLoad() {
         super.viewDidLoad()
      
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         loadProducts()
     
     }
@@ -86,9 +92,16 @@ class ViewController: UIViewController {
         }
     }
 }
-  extension  ViewController : UITableViewDelegate , UITableViewDataSource {
+  extension  CartViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        productNameArray.count
+      
+        if isSearching {
+                    
+                    return searchArray.count
+                    
+                } else  {
+                    return productNameArray.count
+                }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,6 +109,16 @@ class ViewController: UIViewController {
         
         cell.productName.text = productNameArray[indexPath.row]
         cell.imageProduct.image = UIImage(named: productPictureArray[indexPath.row])
+        
+        if isSearching {
+            cell.productName.text = searchArray[indexPath.row]
+            cell.imageProduct.image = UIImage(named:searchPictureArray[indexPath.row] )
+            
+                } else {
+                    cell.productName.text = productNameArray[indexPath.row]
+                    cell.imageProduct.image = UIImage(named: productPictureArray[indexPath.row])
+                    
+                }
     
         cell.deleteButtonClicked = {
             let db = Firestore.firestore()
@@ -130,6 +153,25 @@ class ViewController: UIViewController {
       func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
           return 180.0
       }
+}
+
+extension CartViewController : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           
+           if searchText == "" {
+                     isSearching = false
+                  } else {
+                      isSearching = true
+
+                searchArray = productNameArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                        
+                  }
+                  
+        self.tableView.reloadData()
+           
+       }
 }
 
 

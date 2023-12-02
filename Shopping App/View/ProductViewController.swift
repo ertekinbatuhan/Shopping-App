@@ -22,8 +22,6 @@ class ProductViewController: UIViewController {
     var searchPictureArray = [String]()
     var isSearching = false
       
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

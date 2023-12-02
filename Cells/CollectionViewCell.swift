@@ -15,7 +15,6 @@ class CollectionViewCell: UICollectionViewCell {
     var buttonClicked : (() -> ())?
     
     
-    
     @IBAction func addButton(_ sender: Any) {
         
         buttonClicked?()
