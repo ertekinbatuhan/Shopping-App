@@ -17,14 +17,33 @@ class ViewController: UIViewController {
     var productNameArray = [String]()
     var productPictureArray = [String]()
     var productIdArray = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+     
         tableView.dataSource = self
         tableView.delegate = self
         loadProducts()
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if let tabBarItems = tabBarController?.tabBar.items {
+            
+            let cart = tabBarItems[1]
+            cart.badgeValue =  String(productNameArray.count)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if let tabBarItems = tabBarController?.tabBar.items {
+            
+            let cart = tabBarItems[1]
+            cart.badgeValue =  String(productNameArray.count)
+            
+        }
         
     }
     
@@ -32,12 +51,16 @@ class ViewController: UIViewController {
         
         let db = Firestore.firestore()
         db.collection("selectedProducts").addSnapshotListener{ snapshots, error in
-    
+            
             if error != nil {
-                
                 print(error?.localizedDescription)
                 
             } else {
+            
+                self.productNameArray.removeAll()
+                self.productPictureArray.removeAll()
+                self.productIdArray.removeAll()
+                
                 for document in snapshots!.documents {
                 
                     if let productName = document.get("Product Name") as?  String {
@@ -56,14 +79,13 @@ class ViewController: UIViewController {
                         self.productIdArray.append(productID)
                     }
                 }
-                self.tableView.reloadData()
+               
             }
+            self.tableView.reloadData()
+            
         }
-        
     }
-
 }
-
   extension  ViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         productNameArray.count
@@ -81,12 +103,11 @@ class ViewController: UIViewController {
             let query = db.collection("selectedProducts").whereField("Product Name", isEqualTo: self.productNameArray[indexPath.row])
             
             self.productNameArray.removeAll()
-            self.productPictureArray.removeAll()
-            
+           self.productPictureArray.removeAll()
+        
             query.getDocuments { (querySnapshot, error) in
-            
                 if let error = error {
-                    print("Veri çekme hatası: \(error.localizedDescription)")
+                    print((error.localizedDescription))
                 } else {
                     for document in querySnapshot!.documents {
                         document.reference.delete { (error) in
@@ -99,8 +120,8 @@ class ViewController: UIViewController {
                     }
                 }
             }
-           self.tableView.reloadData()
-          
+            self.tableView.reloadData()
+           
         }
         
         return cell 
@@ -110,6 +131,9 @@ class ViewController: UIViewController {
           return 180.0
       }
 }
+
+
+
   
 
 

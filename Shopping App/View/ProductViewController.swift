@@ -46,6 +46,7 @@ class ProductViewController: UIViewController {
                 print(error?.localizedDescription)
                 
             } else {
+            
                 for document in snapshots!.documents {
                     
                     if let productName = document.get("Product Name") as?  String {
@@ -144,6 +145,7 @@ extension ProductViewController : UISearchBarDelegate {
                       // Add Data
                       searchArray = productNameArray.filter({$0.lowercased().contains(searchText.lowercased())})
                         searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
+                        
                   }
                   
         self.collectionView.reloadData()
