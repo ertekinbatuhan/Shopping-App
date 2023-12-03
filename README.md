@@ -1,4 +1,5 @@
 
 
 
-![Apple iPhone 11 Pro Max Presentation](https://github.com/ertekinbatuhan/Shopping-App/assets/101355515/2c79db4c-21cf-42f3-9408-181e4628e9b2)
+
+![Image](https://github.com/ertekinbatuhan/Shopping-App/assets/101355515/6e00f5f8-e528-4117-b2b9-dc8f002d31b1)
