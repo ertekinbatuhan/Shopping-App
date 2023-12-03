@@ -10,15 +10,13 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var productName: UILabel!
-    var buttonClicked : (() -> ())?
     
+    var buttonClicked : (() -> ())?
     
     @IBAction func addButton(_ sender: Any) {
         
         buttonClicked?()
         
     }
-    
 }

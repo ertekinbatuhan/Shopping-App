@@ -69,8 +69,6 @@ class ProductViewController: UIViewController {
 
 extension ProductViewController : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      //  return productNameArray.count
-        
         
         if isSearching {
                     
@@ -79,14 +77,11 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
                 } else  {
                     return productNameArray.count
                 }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectView", for: indexPath) as! CollectionViewCell
-        
         
         cell.imageView.layer.cornerRadius = 10
         cell.imageView.layer.borderWidth = 2.0

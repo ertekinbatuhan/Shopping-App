@@ -108,15 +108,17 @@ class CartViewController: UIViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell" , for: indexPath) as! TableViewCell
         
         cell.productName.text = productNameArray[indexPath.row]
-        cell.imageProduct.image = UIImage(named: productPictureArray[indexPath.row])
+        cell.productImage.image = UIImage(named: productPictureArray[indexPath.row])
+        cell.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        cell.background.layer.cornerRadius = 10.0
         
         if isSearching {
             cell.productName.text = searchArray[indexPath.row]
-            cell.imageProduct.image = UIImage(named:searchPictureArray[indexPath.row] )
+            cell.productImage.image = UIImage(named:searchPictureArray[indexPath.row] )
             
                 } else {
                     cell.productName.text = productNameArray[indexPath.row]
-                    cell.imageProduct.image = UIImage(named: productPictureArray[indexPath.row])
+                    cell.productImage.image = UIImage(named: productPictureArray[indexPath.row])
                     
                 }
     
