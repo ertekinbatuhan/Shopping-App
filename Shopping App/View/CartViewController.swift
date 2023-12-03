@@ -22,7 +22,6 @@ class CartViewController: UIViewController {
     var searchPictureArray = [String]()
     var isSearching = false
       
-
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -30,6 +29,7 @@ class CartViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
         loadProducts()
+        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
     
     }
     
@@ -103,6 +103,10 @@ class CartViewController: UIViewController {
                     return productNameArray.count
                 }
     }
+      
+      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          tableView.deselectRow(at: indexPath, animated: true)
+      }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell" , for: indexPath) as! TableViewCell
