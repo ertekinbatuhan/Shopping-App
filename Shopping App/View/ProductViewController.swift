@@ -2,12 +2,15 @@
 //  ProductViewController.swift
 //  Shopping App
 //
-//  Created by Batuhan Berk Ertekin on 30.11.2023.
+//  Created by Batuhan Berk Ertekin on 5.12.2023.
 //
+
 
 import UIKit
 import Firebase
 import FirebaseFirestore
+import RxSwift
+import FirebaseCore
 
 
 class ProductViewController: UIViewController {
@@ -21,6 +24,8 @@ class ProductViewController: UIViewController {
     var searchArray = [String]()
     var searchPictureArray = [String]()
     var isSearching = false
+    
+   var productViewModel = ProductViewModel()
       
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +34,23 @@ class ProductViewController: UIViewController {
         collectionView.delegate = self
         productSearch.delegate = self
         
-        loadData()
-
+       // loadData()
+        _ = productViewModel.productNameArray.subscribe(onNext: { data in
+            
+            self.productNameArray = data
+            self.collectionView.reloadData()
+           
+        })
+        _ = productViewModel.productPictureArray.subscribe(onNext: { data in
+            
+            self.productPictureArray = data
+            self.collectionView.reloadData()
+            
+        })
+       
     }
     
-    func loadData() {
+  /*  func loadData() {
         
         let db = Firestore.firestore()
         
@@ -64,6 +81,7 @@ class ProductViewController: UIViewController {
             }
         }
     }
+   */
 
 }
 
@@ -148,6 +166,3 @@ extension ProductViewController : UISearchBarDelegate {
     
     
 }
-
-
-

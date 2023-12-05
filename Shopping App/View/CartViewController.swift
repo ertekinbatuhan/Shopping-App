@@ -21,16 +21,31 @@ class CartViewController: UIViewController {
     var searchArray = [String]()
     var searchPictureArray = [String]()
     var isSearching = false
+    var cartViewModel = CartViewModel()
       
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+    
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        loadProducts()
+       // loadProducts()
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
-    
+       
+        _ = cartViewModel.productNameArray.subscribe(onNext: { data in
+            
+            self.productNameArray = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+        _ = cartViewModel.productPictureArray.subscribe(onNext: { data in
+            
+            self.productPictureArray = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +68,7 @@ class CartViewController: UIViewController {
         
     }
     
-    func loadProducts() {
+/*    func loadProducts() {
         
         let db = Firestore.firestore()
         db.collection("selectedProducts").addSnapshotListener{ snapshots, error in
@@ -91,6 +106,8 @@ class CartViewController: UIViewController {
             
         }
     }
+ */
+  
 }
   extension  CartViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

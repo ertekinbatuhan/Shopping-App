@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C022D2702B1F26AE00BEA9CF /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022D26F2B1F26AE00BEA9CF /* ProductViewModel.swift */; };
+		C022D2722B1F26B900BEA9CF /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022D2712B1F26B900BEA9CF /* CartViewModel.swift */; };
+		C022D2752B1F26F600BEA9CF /* ProductDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022D2742B1F26F600BEA9CF /* ProductDaoRepository.swift */; };
+		C022D27F2B1F27EC00BEA9CF /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C022D27E2B1F27EC00BEA9CF /* RxCocoa-Dynamic */; };
+		C022D2852B1F27EC00BEA9CF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C022D2842B1F27EC00BEA9CF /* RxSwift */; };
+		C022D28D2B1F2BB400BEA9CF /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022D28C2B1F2BB400BEA9CF /* ProductViewController.swift */; };
+		C022D2A82B1F3F3900BEA9CF /* CartDaoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C022D2A72B1F3F3900BEA9CF /* CartDaoRepository.swift */; };
 		C0A4BE732B17B1550056D42D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A4BE722B17B1550056D42D /* AppDelegate.swift */; };
 		C0A4BE752B17B1550056D42D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A4BE742B17B1550056D42D /* SceneDelegate.swift */; };
 		C0A4BE772B17B1550056D42D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A4BE762B17B1550056D42D /* CartViewController.swift */; };
@@ -14,7 +21,6 @@
 		C0A4BE7F2B17B1560056D42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A4BE7D2B17B1560056D42D /* LaunchScreen.storyboard */; };
 		C0A4BE872B17B1CF0056D42D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0A4BE862B17B1CF0056D42D /* GoogleService-Info.plist */; };
 		C0A4BE8A2B17B2160056D42D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C0A4BE892B17B2160056D42D /* FirebaseAnalytics */; };
-		C0A4BE962B17B2160056D42D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C0A4BE952B17B2160056D42D /* FirebaseAuth */; };
 		C0A4BE9C2B17B2160056D42D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C0A4BE9B2B17B2160056D42D /* FirebaseDatabase */; };
 		C0A4BEA22B17B2160056D42D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C0A4BEA12B17B2160056D42D /* FirebaseFirestore */; };
 		C0A4BEBC2B17B2160056D42D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C0A4BEBB2B17B2160056D42D /* FirebaseStorage */; };
@@ -22,10 +28,14 @@
 		C0A4BEC62B17BC140056D42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0A4BEC52B17BC140056D42D /* Main.storyboard */; };
 		C0A4BEC82B17BE220056D42D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A4BEC72B17BE220056D42D /* TableViewCell.swift */; };
 		C0FB3F6E2B189CB400F75076 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB3F6D2B189CB400F75076 /* CollectionViewCell.swift */; };
-		C0FB3F702B189D0200F75076 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB3F6F2B189D0200F75076 /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C022D26F2B1F26AE00BEA9CF /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		C022D2712B1F26B900BEA9CF /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		C022D2742B1F26F600BEA9CF /* ProductDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDaoRepository.swift; sourceTree = "<group>"; };
+		C022D28C2B1F2BB400BEA9CF /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		C022D2A72B1F3F3900BEA9CF /* CartDaoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDaoRepository.swift; sourceTree = "<group>"; };
 		C0A4BE6F2B17B1550056D42D /* Shopping App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A4BE722B17B1550056D42D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0A4BE742B17B1550056D42D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +48,6 @@
 		C0A4BEC52B17BC140056D42D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C0A4BEC72B17BE220056D42D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C0FB3F6D2B189CB400F75076 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		C0FB3F6F2B189D0200F75076 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +57,9 @@
 			files = (
 				C0A4BE9C2B17B2160056D42D /* FirebaseDatabase in Frameworks */,
 				C0A4BEA22B17B2160056D42D /* FirebaseFirestore in Frameworks */,
+				C022D2852B1F27EC00BEA9CF /* RxSwift in Frameworks */,
+				C022D27F2B1F27EC00BEA9CF /* RxCocoa-Dynamic in Frameworks */,
 				C0A4BE8A2B17B2160056D42D /* FirebaseAnalytics in Frameworks */,
-				C0A4BE962B17B2160056D42D /* FirebaseAuth in Frameworks */,
 				C0A4BEBC2B17B2160056D42D /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,9 +67,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C022D26E2B1F266C00BEA9CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C022D26F2B1F26AE00BEA9CF /* ProductViewModel.swift */,
+				C022D2712B1F26B900BEA9CF /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C022D2732B1F26DF00BEA9CF /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C022D2742B1F26F600BEA9CF /* ProductDaoRepository.swift */,
+				C022D2A72B1F3F3900BEA9CF /* CartDaoRepository.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		C022D2762B1F26FA00BEA9CF /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				C022D2732B1F26DF00BEA9CF /* data */,
+			);
+			path = repo;
+			sourceTree = "<group>";
+		};
 		C0A4BE662B17B1550056D42D = {
 			isa = PBXGroup;
 			children = (
+				C022D2762B1F26FA00BEA9CF /* repo */,
+				C022D26E2B1F266C00BEA9CF /* ViewModel */,
 				C0FB3F752B18EC9900F75076 /* Cells */,
 				C0A4BE712B17B1550056D42D /* Shopping App */,
 				C0A4BE702B17B1550056D42D /* Products */,
@@ -101,8 +139,8 @@
 		C0A4BEC02B17B3E60056D42D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0FB3F6F2B189D0200F75076 /* ProductViewController.swift */,
 				C0A4BE762B17B1550056D42D /* CartViewController.swift */,
+				C022D28C2B1F2BB400BEA9CF /* ProductViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,10 +172,11 @@
 			name = "Shopping App";
 			packageProductDependencies = (
 				C0A4BE892B17B2160056D42D /* FirebaseAnalytics */,
-				C0A4BE952B17B2160056D42D /* FirebaseAuth */,
 				C0A4BE9B2B17B2160056D42D /* FirebaseDatabase */,
 				C0A4BEA12B17B2160056D42D /* FirebaseFirestore */,
 				C0A4BEBB2B17B2160056D42D /* FirebaseStorage */,
+				C022D27E2B1F27EC00BEA9CF /* RxCocoa-Dynamic */,
+				C022D2842B1F27EC00BEA9CF /* RxSwift */,
 			);
 			productName = "Shopping App";
 			productReference = C0A4BE6F2B17B1550056D42D /* Shopping App.app */;
@@ -169,6 +208,7 @@
 			mainGroup = C0A4BE662B17B1550056D42D;
 			packageReferences = (
 				C0A4BE882B17B2160056D42D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C022D2772B1F27EC00BEA9CF /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = C0A4BE702B17B1550056D42D /* Products */;
 			projectDirPath = "";
@@ -201,9 +241,13 @@
 				C0A4BEC82B17BE220056D42D /* TableViewCell.swift in Sources */,
 				C0A4BE772B17B1550056D42D /* CartViewController.swift in Sources */,
 				C0FB3F6E2B189CB400F75076 /* CollectionViewCell.swift in Sources */,
-				C0FB3F702B189D0200F75076 /* ProductViewController.swift in Sources */,
 				C0A4BEC42B17B6AF0056D42D /* Product.swift in Sources */,
 				C0A4BE732B17B1550056D42D /* AppDelegate.swift in Sources */,
+				C022D2752B1F26F600BEA9CF /* ProductDaoRepository.swift in Sources */,
+				C022D2722B1F26B900BEA9CF /* CartViewModel.swift in Sources */,
+				C022D2A82B1F3F3900BEA9CF /* CartDaoRepository.swift in Sources */,
+				C022D2702B1F26AE00BEA9CF /* ProductViewModel.swift in Sources */,
+				C022D28D2B1F2BB400BEA9CF /* ProductViewController.swift in Sources */,
 				C0A4BE752B17B1550056D42D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +465,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C022D2772B1F27EC00BEA9CF /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 		C0A4BE882B17B2160056D42D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -432,15 +484,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C022D27E2B1F27EC00BEA9CF /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C022D2772B1F27EC00BEA9CF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		C022D2842B1F27EC00BEA9CF /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C022D2772B1F27EC00BEA9CF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		C0A4BE892B17B2160056D42D /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C0A4BE882B17B2160056D42D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		C0A4BE952B17B2160056D42D /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0A4BE882B17B2160056D42D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
 		};
 		C0A4BE9B2B17B2160056D42D /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
