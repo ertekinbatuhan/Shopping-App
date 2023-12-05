@@ -49,40 +49,6 @@ class ProductViewController: UIViewController {
         })
        
     }
-    
-  /*  func loadData() {
-        
-        let db = Firestore.firestore()
-        
-        db.collection("products").addSnapshotListener{ snapshots, error in
-            
-            if error != nil {
-                
-                print(error?.localizedDescription)
-                
-            } else {
-            
-                for document in snapshots!.documents {
-                    
-                    if let productName = document.get("Product Name") as?  String {
-                        
-                        self.productNameArray.append(productName)
-                        
-                    }
-                    
-                    if let productPicture = document.get("Product Picture : ") as? String {
-                        print(productPicture)
-                        
-                        self.productPictureArray.append(productPicture)
-                        
-                    }
-                }
-                self.collectionView.reloadData()
-            }
-        }
-    }
-   */
-
 }
 
 extension ProductViewController : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -122,13 +88,16 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
                     
                 }
                 
-        cell.buttonClicked = {
+        cell.buttonClicked = { [self] in
 
-            let db = Firestore.firestore()
+            productViewModel.addSelectedProduct(productName:productNameArray[indexPath.row], productPicture: productPictureArray[indexPath.row])
             
-            db.collection("selectedProducts").document().setData([
-                "Product Id" : UUID().uuidString,
-                "Product Name" : self.productNameArray[indexPath.row],"Product Picture" : self.productPictureArray[indexPath.row]])
+          //  let db = Firestore.firestore()
+            
+           // db.collection("selectedProducts").document().setData([
+             //   "Product Id" : UUID().uuidString,
+             //   "Product Name" : self.productNameArray[indexPath.row],"Product Picture" : self.productPictureArray[indexPath.row]])
+            
             
         }
     
@@ -153,10 +122,10 @@ extension ProductViewController : UISearchBarDelegate {
                      isSearching = false
                   } else {
                       isSearching = true
-                      // Add Data
+        
                       searchArray = productNameArray.filter({$0.lowercased().contains(searchText.lowercased())})
                         searchPictureArray = productPictureArray.filter({$0.lowercased().contains(searchText.lowercased())})
-                        
+
                   }
                   
         self.collectionView.reloadData()

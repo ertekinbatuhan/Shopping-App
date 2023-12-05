@@ -14,13 +14,13 @@ class ProductDaoRepository {
     
     var productNameArray =  BehaviorSubject<[String]>(value: [String]())
     var productPictureArray = BehaviorSubject<[String]>(value: [String]())
-   
+    
     func loadData() {
         
         let db = Firestore.firestore()
         var nameArray = [String]()
         var pictureArray = [String]()
-
+        
         db.collection("products").addSnapshotListener{ snapshots, error in
             
             if error != nil {
@@ -31,7 +31,7 @@ class ProductDaoRepository {
                 
                 nameArray.removeAll()
                 pictureArray.removeAll()
-            
+                
                 for document in snapshots!.documents {
                     
                     if let productName = document.get("Product Name") as?  String {
@@ -45,14 +45,28 @@ class ProductDaoRepository {
                         
                         pictureArray.append(productPicture)
                         self.productPictureArray.onNext(pictureArray)
-                    
+                        
                     }
                 }
-              //  self.collectionView.reloadData()
+                //  self.collectionView.reloadData()
             }
         }
     }
     
+    
+    func addSelectedProduct(productName : String , productPicture : String) {
+        let db = Firestore.firestore()
 
+               db.collection("selectedProducts").document().setData([
+                   "Product Id" : UUID().uuidString,
+                   "Product Name" : productName,
+                   "Product Picture" : productPicture
+               ])
+           }
+    
     
 }
+    
+
+    
+

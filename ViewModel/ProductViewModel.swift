@@ -16,6 +16,10 @@ class ProductViewModel {
     var productPictureArray = BehaviorSubject<[String]>(value: [String]())
     var productRepository = ProductDaoRepository()
     
+   // var productName = BehaviorSubject<String>(value: "")
+   // var productPicture = BehaviorSubject<String>(value: "")
+    
+    
     init() {
         
         productNameArray = productRepository.productNameArray
@@ -28,4 +32,10 @@ class ProductViewModel {
         
     }
     
-}
+    func addSelectedProduct(productName : String , productPicture : String) {
+        productRepository.addSelectedProduct(productName: productName, productPicture: productPicture)
+        
+           }
+    }
+    
+
