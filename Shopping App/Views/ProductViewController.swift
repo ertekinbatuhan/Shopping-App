@@ -92,13 +92,6 @@ extension ProductViewController : UICollectionViewDataSource , UICollectionViewD
 
             productViewModel.addSelectedProduct(productName:productNameArray[indexPath.row], productPicture: productPictureArray[indexPath.row])
             
-          //  let db = Firestore.firestore()
-            
-           // db.collection("selectedProducts").document().setData([
-             //   "Product Id" : UUID().uuidString,
-             //   "Product Name" : self.productNameArray[indexPath.row],"Product Picture" : self.productPictureArray[indexPath.row]])
-            
-            
         }
     
         return cell

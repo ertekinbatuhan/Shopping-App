@@ -41,4 +41,28 @@ class CartDaoRepository {
           
         }
     }
+    
+    
+    func selectedProducts(productIndex : String) {
+        
+        let db = Firestore.firestore()
+        
+        let query = db.collection("selectedProducts").whereField("Product Name", isEqualTo: productIndex)
+    
+        query.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print((error.localizedDescription))
+            } else {
+                for document in querySnapshot!.documents {
+                    document.reference.delete { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

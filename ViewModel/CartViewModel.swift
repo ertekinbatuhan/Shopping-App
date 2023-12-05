@@ -26,4 +26,9 @@ class CartViewModel {
         
     }
     
+    func  selectedProducts(indexPath : String) {
+        cardRepository.selectedProducts(productIndex: indexPath)
+    
+    }
+    
 }

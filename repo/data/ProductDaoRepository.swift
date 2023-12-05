@@ -25,7 +25,7 @@ class ProductDaoRepository {
             
             if error != nil {
                 
-                print(error?.localizedDescription)
+            print(error?.localizedDescription)
                 
             } else {
                 
@@ -52,7 +52,6 @@ class ProductDaoRepository {
             }
         }
     }
-    
     
     func addSelectedProduct(productName : String , productPicture : String) {
         let db = Firestore.firestore()

@@ -101,28 +101,12 @@ class CartViewController: UIViewController {
                 }
     
         cell.deleteButtonClicked = {
-            let db = Firestore.firestore()
             
-            let query = db.collection("selectedProducts").whereField("Product Name", isEqualTo: self.productNameArray[indexPath.row])
-            
-            self.productNameArray.removeAll()
-           self.productPictureArray.removeAll()
+            self.cartViewModel.selectedProducts(indexPath: self.productNameArray[indexPath.row])
         
-            query.getDocuments { (querySnapshot, error) in
-                if let error = error {
-                    print((error.localizedDescription))
-                } else {
-                    for document in querySnapshot!.documents {
-                        document.reference.delete { (error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            } else {
-                                
-                            }
-                        }
-                    }
-                }
-            }
+            self.productNameArray.removeAll()
+            self.productPictureArray.removeAll()
+            
             self.tableView.reloadData()
            
         }
