@@ -14,7 +14,6 @@ class ProductViewModel {
     
     var productNameArray =  BehaviorSubject<[String]>(value: [String]())
     var productPictureArray = BehaviorSubject<[String]>(value: [String]())
-    
     var productRepository = ProductDaoRepository()
     
     init() {
@@ -24,11 +23,9 @@ class ProductViewModel {
         loadProducts()
     }
     
-    
     func loadProducts() {
         productRepository.loadData()
         
     }
-    
     
 }

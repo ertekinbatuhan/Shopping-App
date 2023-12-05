@@ -29,7 +29,7 @@ class CartViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-       // loadProducts()
+        
         tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
        
         _ = cartViewModel.productNameArray.subscribe(onNext: { data in
@@ -63,51 +63,8 @@ class CartViewController: UIViewController {
             
             let cart = tabBarItems[1]
             cart.badgeValue =  String(productNameArray.count)
-            
-        }
-        
-    }
-    
-/*    func loadProducts() {
-        
-        let db = Firestore.firestore()
-        db.collection("selectedProducts").addSnapshotListener{ snapshots, error in
-            
-            if error != nil {
-                print(error?.localizedDescription)
-                
-            } else {
-            
-                self.productNameArray.removeAll()
-                self.productPictureArray.removeAll()
-                self.productIdArray.removeAll()
-                
-                for document in snapshots!.documents {
-                
-                    if let productName = document.get("Product Name") as?  String {
-                        
-                        self.productNameArray.append(productName)
-                    }
-                    
-                    if let productPicture = document.get("Product Picture") as? String {
-                
-                        self.productPictureArray.append(productPicture)
-                        
-                    }
-                    
-                    if let productID = document.get("Product Id") as? String {
-                    
-                        self.productIdArray.append(productID)
-                    }
-                }
-               
-            }
-            self.tableView.reloadData()
-            
         }
     }
- */
-  
 }
   extension  CartViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
