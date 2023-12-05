@@ -16,10 +16,6 @@ class ProductViewModel {
     var productPictureArray = BehaviorSubject<[String]>(value: [String]())
     var productRepository = ProductDaoRepository()
     
-   // var productName = BehaviorSubject<String>(value: "")
-   // var productPicture = BehaviorSubject<String>(value: "")
-    
-    
     init() {
         
         productNameArray = productRepository.productNameArray

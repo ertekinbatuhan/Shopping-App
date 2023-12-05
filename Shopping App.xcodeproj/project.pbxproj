@@ -85,18 +85,12 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-		C022D2762B1F26FA00BEA9CF /* repo */ = {
-			isa = PBXGroup;
-			children = (
-				C022D2732B1F26DF00BEA9CF /* data */,
-			);
-			path = repo;
-			sourceTree = "<group>";
-		};
 		C0A4BE662B17B1550056D42D = {
 			isa = PBXGroup;
 			children = (
-				C022D2762B1F26FA00BEA9CF /* repo */,
+				C022D2732B1F26DF00BEA9CF /* data */,
+				C0A4BEBF2B17B2F50056D42D /* Model */,
+				C0A4BEC02B17B3E60056D42D /* Views */,
 				C022D26E2B1F266C00BEA9CF /* ViewModel */,
 				C0FB3F752B18EC9900F75076 /* Cells */,
 				C0A4BE712B17B1550056D42D /* Shopping App */,
@@ -115,8 +109,6 @@
 		C0A4BE712B17B1550056D42D /* Shopping App */ = {
 			isa = PBXGroup;
 			children = (
-				C0A4BEC02B17B3E60056D42D /* Views */,
-				C0A4BEBF2B17B2F50056D42D /* Model */,
 				C0A4BE862B17B1CF0056D42D /* GoogleService-Info.plist */,
 				C0A4BE722B17B1550056D42D /* AppDelegate.swift */,
 				C0A4BE742B17B1550056D42D /* SceneDelegate.swift */,

@@ -62,8 +62,6 @@ class ProductDaoRepository {
                    "Product Picture" : productPicture
                ])
            }
-    
-    
 }
     
 
