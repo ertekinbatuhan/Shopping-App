@@ -34,21 +34,25 @@ class ProductViewController: UIViewController {
         collectionView.delegate = self
         productSearch.delegate = self
         
-       // loadData()
         _ = productViewModel.productNameArray.subscribe(onNext: { data in
             
             self.productNameArray = data
-            self.collectionView.reloadData()
            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         })
         _ = productViewModel.productPictureArray.subscribe(onNext: { data in
             
             self.productPictureArray = data
-            self.collectionView.reloadData()
             
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         })
        
     }
+    
 }
 
 extension ProductViewController : UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {

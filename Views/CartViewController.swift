@@ -54,6 +54,7 @@ class CartViewController: UIViewController {
             
             let cart = tabBarItems[1]
             cart.badgeValue =  String(productNameArray.count)
+           
         }
     }
     
